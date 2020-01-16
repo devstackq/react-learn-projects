@@ -2,8 +2,6 @@ import React from 'react';
 import MovieCard from './MovieCard'
 import './style.css'
 
-import Movies from './Movies';
-
 
 const MovieList = props => (
     <div>
