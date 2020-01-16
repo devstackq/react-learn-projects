@@ -28,8 +28,6 @@ class Timer extends React.Component {
         }
     }
 
-
-
     startTimer = () => {
         if (this.state.status !== 'started') {
             this.interval = setInterval(() => {
@@ -44,7 +42,7 @@ class Timer extends React.Component {
             this.setState(() => ({ status: 'started' }))
         }
     }
-   
+
     //clearInterval - stop time
     //stop timer func
     stopTimer = () => {
@@ -52,13 +50,14 @@ class Timer extends React.Component {
             //stop time
             clearInterval(this.interval)
             // set last value, 32000/ 1000
-            this.setState((prevState)=> {
+            this.setState((prevState) => {
                 return ({
-                    seconds: Math.floor(prevState.time / 1000),
-                     status: 'stopped'
+                    status: 'stopped',
+                    seconds: Math.floor(prevState.time / 1000)
+                  
                 })
             })
-          //  this.setState(() => ({ seconds: 0, status: 'stopped' }))
+            //  this.setState(() => ({ seconds: 0, status: 'stopped' }))
         }
     }
 
@@ -73,26 +72,22 @@ class Timer extends React.Component {
                 {/* shoow time, status etc */}
                 <Display
                     //mlsec -> send Display comp
-                    time={this.state.time}
                     status={this.state.status}
+                    time={this.state.time}
+                   
                     onSecondChanged={this.onSecondChanged}>
-          
-                {/* controls, start, stop func, manipulate */}
-                <div>
-                    <Controls startTimer={this.startTimer}
-                        stopTimer={this.stopTimer}
-                        resetTimer={this.resetTimer}
-                        status={this.state.status}
-                        
-                        canStart={this.state.seconds > 0} />
 
-                </div>
-                
+                    {/* controls, start, stop func, manipulate */}
+                    <div>
+                        <Controls startTimer={this.startTimer}
+                            stopTimer={this.stopTimer}
+                            resetTimer={this.resetTimer}
+                            status={this.state.status}
+                            canStart={this.state.seconds > 0} />
+                    </div>
                 </Display>
-                </div>
-                );
-            
-            }
-        
-        }
+            </div>
+        );
+    }
+}
 export default Timer;

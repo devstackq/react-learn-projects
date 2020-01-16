@@ -9,10 +9,9 @@ export default class Time {
         //find minutes, time
         const minutes = this.formatUnitOfTime(Math.floor(time / (60 * 1000)))
         time = time % (60 * 1000)
-        const seconds = this.formatUnitOfTime(Math.floor(time % 1000))
-        const milliseconds = this.formatUnitOfTime(time % 100)
+        const seconds = this.formatUnitOfTime(Math.floor(time / 1000))
+        const milliseconds = this.formatUnitOfTime(time % 1000)
         return `${hours}:${minutes}:${seconds}:${milliseconds}`
-
     }
     // 2 first value, cut, and return how string
     formatUnitOfTime(unitOfTime) {

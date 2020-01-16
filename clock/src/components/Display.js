@@ -1,14 +1,17 @@
 import React, { Component } from 'react'
-
+import DateTime from '../libs/DateTime'
 
 const Display = (props) => (
-    // time show component
+    // time component - show time
+    //object style property
+// class, method  toTimeString, toDateString, getDate, getTime
     <div>
         <div>
-            {props.time}
+        <span>Simple clock</span>
+        <div>{DateTime.toTimeString(props.time)}</div>
+            {<div>{DateTime.toDateString(props.time)}</div>}
         </div>
     </div>
-
 )
 
 export default Display
