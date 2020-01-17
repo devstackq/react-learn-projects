@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-
-import Car from "./Car";
+import CarList from './CarList'
+//import Car from "./Car";
 import "./App.css";
 class App extends Component {
-  
+
   state = {
     cars: [
       { name: "Jiguli", year: 1987 },
@@ -12,9 +12,26 @@ class App extends Component {
     ],
     pageTitle: "Hello People",
     classStyle: "",
-    flag: false
+    flag: false,
+    inputData: ""
   };
 
+  //   changeCarsValueP = (value) => {
+  //     this.setState(prevState => ({
+  //         cars: {
+  //             ...prevState.cars,
+  //             [prevState.cars[1].name]: value,
+  //         },
+  //     }));
+  // };
+
+  changeCarsValueP = (value, i) => {
+    let carsN = [...this.state.cars];
+    carsN[i].name = value;
+    this.setState({
+      cars: carsN
+    })
+  }
 
   changeTitleParent = value => {
     this.setState({
@@ -26,35 +43,48 @@ class App extends Component {
       classStyle: value
     });
   };
-  // changeSomethingParent = value => {
-  //   this.setState({
-  //     flag : value
-  //   })
-  // }
+
   changeSomethingParent = () => {
     this.setState({
       flag: !this.state.flag
     })
   }
 
+  handleInput = value => {
+    this.setState({
+      inputData: value
+    });
+  }
+
+
   render() {
+    const styleNew = {
+      fontSize: "30px"
+    }
     // take value from state
     //  const carz = this.state.cars;
     return (
       <div>
         {/* //show */}
-        <h2 className={this.state.classStyle}> {this.state.pageTitle}</h2>
-        {this.state.flag ? "flag true" : "false"}
-        {/*<button onClick={this.changeTitleHandler}>knopka blya</button>
-        <p>год производтсва : {this.state.cars[0].year}</p>
-        <p>модель : {this.state.cars[0].name}</p> */}
 
-        <Car
-          name={this.state.cars[0].name}
-          year={this.state.cars[0].year}
+        <h2 className={this.state.classStyle}> {this.state.pageTitle}</h2>
+        {this.state.flag ? "flag true" : " flag false"}
+
+        <br />
+        {/* <input onChange={(e) => this.handleInput(e.target.value)} /> */}
+
+        <input onChange={(e) => this.changeCarsValueP(e.target.value, 1)} />
+
+        {/* <p>{this.state.inputData}</p> */}
+
+        <p className={styleNew}>{this.state.cars[1].name}</p>
+
+        <CarList
+          carsC={this.state.cars}
           onChangeTitle={() => this.changeTitleParent("Changed Title Value")}
           onChangeStyle={() => this.changeStyleParent("header")}
           onChangeTest={() => this.changeSomethingParent(true)}
+        //changeInputData= {() => this.changeInputParen(value)}
         />
       </div>
     );
