@@ -12,7 +12,7 @@ class App extends Component {
     ],
     pageTitle: "Hello People",
     classStyle: "",
-    flag: false,
+    flag: true,
     inputData: ""
   };
 
@@ -44,18 +44,18 @@ class App extends Component {
     });
   };
 
-  changeSomethingParent = () => {
-    this.setState({
-      flag: !this.state.flag
-    })
-  }
+
 
   handleInput = value => {
     this.setState({
       inputData: value
     });
   }
-
+  changeSomethingParent = () => {
+    this.setState({
+      flag: !this.state.flag
+    })
+  }
 
   render() {
     const styleNew = {
@@ -63,12 +63,19 @@ class App extends Component {
     }
     // take value from state
     //  const carz = this.state.cars;
+if (this.state.classStyle == "") {
+  this.setState({
+    classStyle : "header2"
+  })
+}
+
     return (
       <div>
+        <button onClick={() => this.changeSomethingParent(false)}>   {this.state.flag ? "true" : "false"} </button>
         {/* //show */}
 
         <h2 className={this.state.classStyle}> {this.state.pageTitle}</h2>
-        {this.state.flag ? "flag true" : " flag false"}
+
 
         <br />
         {/* <input onChange={(e) => this.handleInput(e.target.value)} /> */}
@@ -78,14 +85,16 @@ class App extends Component {
         {/* <p>{this.state.inputData}</p> */}
 
         <p className={styleNew}>{this.state.cars[1].name}</p>
+        {this.state.flag ?
+          <CarList
+            carsC={this.state.cars}
+            onChangeTitle={() => this.changeTitleParent("Changed Title Value")}
+            onChangeStyle={() => this.changeStyleParent("header")}
+            onChangeTest={() => this.changeSomethingParent(false)}
+          //changeInputData= {() => this.changeInputParen(value)}
+          />
+          : "close magaz"}
 
-        <CarList
-          carsC={this.state.cars}
-          onChangeTitle={() => this.changeTitleParent("Changed Title Value")}
-          onChangeStyle={() => this.changeStyleParent("header")}
-          onChangeTest={() => this.changeSomethingParent(true)}
-        //changeInputData= {() => this.changeInputParen(value)}
-        />
       </div>
     );
   }
