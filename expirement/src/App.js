@@ -63,7 +63,7 @@ class App extends Component {
     }
     // take value from state
     //  const carz = this.state.cars;
-if (this.state.classStyle == "") {
+if (this.state.classStyle === "") {
   this.setState({
     classStyle : "header2"
   })
@@ -88,7 +88,7 @@ if (this.state.classStyle == "") {
         {this.state.flag ?
           <CarList
             carsC={this.state.cars}
-            onChangeTitle={() => this.changeTitleParent("Changed Title Value")}
+            onChangeTitle={this.changeTitleParent}
             onChangeStyle={() => this.changeStyleParent("header")}
             onChangeTest={() => this.changeSomethingParent(false)}
           //changeInputData= {() => this.changeInputParen(value)}

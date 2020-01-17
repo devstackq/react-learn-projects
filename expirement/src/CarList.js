@@ -4,8 +4,10 @@ import Car from './Car'
 const CarList = props => {
 
     return (
+     
         <div>
-            <button onClick={props.onChangeTitle}>Click</button>
+            
+            <button onClick={props.onChangeTitle("New title")}>Click</button>
             <button onClick={props.onChangeStyle}>Style</button>
             <button onClick={props.onChangeTest}> test</button>
             
