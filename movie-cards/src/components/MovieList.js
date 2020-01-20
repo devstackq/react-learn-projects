@@ -12,10 +12,14 @@ const MovieList = props => (
 const getMovies = movies => {
     return (
         <div className="wrapper-list">
+
+
             {
                 movies.map(movie => <MovieCard key={movie.id} movie={movie} />)
             }
+            
         </div>
+        
     )
 }
 

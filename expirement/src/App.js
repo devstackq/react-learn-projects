@@ -88,7 +88,7 @@ if (this.state.classStyle === "") {
         {this.state.flag ?
           <CarList
             carsC={this.state.cars}
-            onChangeTitle={this.changeTitleParent}
+            onChangeTitle={ ()=>this.changeTitleParent("new title")}
             onChangeStyle={() => this.changeStyleParent("header")}
             onChangeTest={() => this.changeSomethingParent(false)}
           //changeInputData= {() => this.changeInputParen(value)}
