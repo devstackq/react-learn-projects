@@ -13,7 +13,7 @@ const Input = props => {
                 />
                 {/* <span onClick={()=>props.deleteItem( props.idx)}> x</span> */}
                 <button type="submit">x</button>
-               { console.log(props.idx)}
+                {console.log(props.idx)}
             </form>
         </div>
     )

@@ -32,27 +32,19 @@ export default class Wrapper extends Component {
         })
     };
 
-    // deleteCityParent = (i) => {
-    //     let nCities = [...this.state.cities];
-    //    nCities =  nCities[i]
-    //     this.setState({
-    //      nCities : null
-    //     })
-    
-    //     console.log('delete')
-    // }
-    deleteCityParent(e, idx){
-           e.preventDefault();
+
+    deleteCityParent(e, idx) {
+        e.preventDefault();
         let newCity = [...this.state.cities]
         newCity = newCity[idx]
-    
-       this.setState({
-        newCity : null
-       })
+        newCity = null
+        this.setState({
+            cities: newCity
+        })
         // this.refs.form.reset();
     }
     //delete, need index element, when event, -> delete -> delete this city
-  
+
     render() {
         return (
             <div>  <label > Destination</label>
@@ -64,7 +56,7 @@ export default class Wrapper extends Component {
                         idx={this.state.idx}
                         choiced={this.state.choiced}
                         deleteItem={this.deleteCityParent}
-                     
+
                     />
 
                 </div>

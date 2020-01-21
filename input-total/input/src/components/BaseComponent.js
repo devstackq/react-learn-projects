@@ -12,18 +12,18 @@ const BaseComponent = props => {
                 <Input
                     city={props.city}
                     idx={props.idx}
-                    deleteItem = {props.deleteItem}
+                    deleteItem={props.deleteItem}
                 />
                 <span className="arrow" onClick={() => props.cityToggle()}>v</span>
-            </div>  
+            </div>
             <div>
-        {/* // 1 ch F, arrow -> ch T, -> show, 2 choiceCity(idx) - choiced F  -> hidden*/}
+                {/* // 1 ch F, arrow -> ch T, -> show, 2 choiceCity(idx) - choiced F  -> hidden*/}
                 <div className={props.choiced ? 'show' : 'hidden'}>
-                   <List
+                    <List
                         city={props.city}
                         getIndex={props.getIndex}
                         choiced={props.choiced}
-                    /> 
+                    />
                     {console.log("index", props.idx)}
                     {console.log("choice", props.choiced)}
                 </div>
