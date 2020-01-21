@@ -7,7 +7,7 @@ export default class Wrapper extends Component {
 
     state = {
         cities: [
-            {},
+            { name: '' },
             { name: 'Almaty' },
             { name: 'Karganda' },
             { name: 'Pavlodar' },
@@ -33,21 +33,25 @@ export default class Wrapper extends Component {
     };
 
 
-    deleteCityParent(e, idx) {
+    deleteCityParent = (e, idx) => {
         e.preventDefault();
         let newCity = [...this.state.cities]
         newCity = newCity[idx]
-        newCity = null
+        newCity = '' 0 null
         this.setState({
             cities: newCity
+            //    this.refs.form.reset();
         })
-        // this.refs.form.reset();
+
+        this.setState({
+            cities: 0
+        })
     }
     //delete, need index element, when event, -> delete -> delete this city
 
     render() {
         return (
-            <div>  <label > Destination</label>
+            <div> <label > Destination</label>
                 <div className="wrapper">
                     <BaseComponent
                         cityToggle={this.cityToggleParent}
@@ -61,7 +65,7 @@ export default class Wrapper extends Component {
 
                 </div>
                 <button> search</button>
-            </div>
+            </div >
         )
     }
 }
