@@ -1,12 +1,19 @@
 import React from 'react';
 import Input from './Input'
-import Dropdown from './DropDown'
+import ListData from './ListData'
 
 const List = props => {
     return (
         <div>
-            <Input city = {props.city} />
-            <Dropdown city = {props.city} />
+    
+            {props.city.map((c, index)=> <ListData key={index} id = {index} city={c}
+            getIndex={props.getIndex}
+            
+            choiced={props.choiced}
+           // changeChoice={()=>props.changeChoice()}
+          
+            //remove click func
+            />)}
         </div>
     )
 }

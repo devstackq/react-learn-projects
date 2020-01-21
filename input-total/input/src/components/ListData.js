@@ -1,11 +1,16 @@
 import React from 'react'
-import Data from './Data'
+import '../App.css'
 
 const ListData = props => {
-    return (
-        <div>
-          {  props.listVal.map(city=> <Data  nameCity={city} />) }
-        </div>
-    )
+  return (
+    <div>
+      <li className="list-item" key={props.index}
+        onClick={() => props.getIndex(props.id)}
+        >
+        {props.city.name}
+      </li>
+    </div>  
+  )
 }
+
 export default ListData;

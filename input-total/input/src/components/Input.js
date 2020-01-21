@@ -1,25 +1,22 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 const Input = props => {
 
-  const   handleChange = (e) => {
-        this.setState({ valueInput: e.target.value, changed: true });
 
-    }
-
-
-    const deleteHandler = value => {
-        this.setState({
-            valueInput: ''
-        })
-    }
+    // <input onChange={(e) => this.changeCarsValueP(e.target.value, 1)} />
     return (
         <div>
-            <input name="props.cities" />
-
+            <form onSubmit={(e) => props.deleteItem(e, props.idx)} >
+                <input className="input"
+                    name="city" type="text" value={props.city[props.idx].name || ''}
+                // ref={props.city[props.idx]}
+                />
+                {/* <span onClick={()=>props.deleteItem( props.idx)}> x</span> */}
+                <button type="submit">x</button>
+               { console.log(props.idx)}
+            </form>
         </div>
     )
 }
-
 
 export default Input
