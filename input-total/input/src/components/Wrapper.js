@@ -2,9 +2,8 @@ import React, { Component } from "react";
 import BaseComponent from "./BaseComponent";
 
 class Wrapper extends Component {
-
   state = {
-    cities : [
+    cities: [
       { name: "" },
       { name: "Almaty" },
       { name: "Karganda" },
@@ -13,26 +12,33 @@ class Wrapper extends Component {
       { name: "Taraz" },
       { name: "Astana" }
     ],
-    historyCity : [
-    ],
+    historyCity: [],
     idx: 0,
-    choiced : false,
-    deleted : false,
-    show : false
+    choiced: false,
+    deleted: false,
+    show: false
   };
 
   cityToggleParent = () => {
     this.setState({
       choiced: !this.state.choiced
-    })
+    });
   };
-
+  // let newCity = [...this.state.cities]
+  // newCity[0].name = value
+  // let nf = this.state.fakeInput
+  // nf[0].name = value
   indexCityParent = value => {
+    let citiesHis = this.state.historyCity;
+    citiesHis.push(this.state.cities[value]);
     this.setState({
+      historyCity: citiesHis,
       idx: value,
       choiced: !this.state.choiced,
       show: true
-    })
+    });
+
+    console.log("history", this.state.historyCity);
   };
 
   deleteCityParent = e => {
@@ -41,23 +47,15 @@ class Wrapper extends Component {
       idx: 0,
       deleted: true,
       show: false
-    })
+    });
   };
 
   inputChangeParent = value => {
-    // let newCity = [...this.state.cities]
-    // newCity[0].name = value
-    // let nf = this.state.fakeInput
-    // nf[0].name = value
     this.setState({
       input: value
     });
   };
 
-  prevCityParent = (city) => {
-    //prevCity = push.
-      console.log(city.name)
-  }
 
   //delete, need index element, when event, -> delete -> delete this city
 
@@ -75,7 +73,7 @@ class Wrapper extends Component {
             choiced={this.state.choiced}
             deleted={this.state.deleted}
             show={this.state.show}
-            prevCity={this.prevCityParent}
+       
           />
         </div>
         <div className="input-group-append"></div>

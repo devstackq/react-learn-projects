@@ -16,7 +16,7 @@ const BaseComponent = props => {
           deleted={props.deleted}
           show={props.show}
           cityToggle={props.cityToggle}
-          prevCity={props.prevCity}
+        
         />
 
         <i

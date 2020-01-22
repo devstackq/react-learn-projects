@@ -13,9 +13,7 @@ class Input extends React.Component {
             name="city"
             type="text"
             defaultValue={this.props.city[this.props.idx].name}
-            onChange={(e) => this.props.inputChange(e.target.value)}
-
-            onClick={()=> this.props.prevCity(this.props.city[this.props.idx])}
+            onChange={e => this.props.inputChange(e.target.value)}
           />
           <button
             onClick={() => this.props.cityToggle()}
