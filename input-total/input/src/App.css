@@ -27,11 +27,10 @@
 }
 .main-input-full {
   position: relative;
-    display: inline-block;
-    vertical-align: top;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-
+  display: inline-block;
+  vertical-align: top;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 .tdselect {
   border-radius: 5px;
@@ -44,7 +43,7 @@
 }
 .pseudoinput.hasarrow {
   width: calc(100% - 16px);
-  flex-direction: row
+  flex-direction: row;
 }
 .tdselect .pseudoinput {
   border-collapse: separate;
@@ -63,36 +62,35 @@
   padding: 4px 5px 5px 8px;
 }
 
-  .autosizeinput > input {
-    
-    background-color: transparent;
-    display: inline-block;
-    position: inherit;
-    padding: 0;
-    border: none;
-    -webkit-box-shadow: none !important;
-    box-shadow: none !important;
+.autosizeinput > input {
+  background-color: transparent;
+  display: inline-block;
+  position: inherit;
+  padding: 0;
+  border: none;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
 }
 input {
   box-sizing: content-box;
-  
-    max-width: 244px;
+
+  max-width: 244px;
 }
 .hid {
   position: absolute;
-   top: 0px;
-    left: 0px;
-     visibility: hidden;
-      height: 0px;
-       overflow: scroll; 
-       white-space: pre;
+  top: 0px;
+  left: 0px;
+  visibility: hidden;
+  height: 0px;
+  overflow: scroll;
+  white-space: pre;
 
-        font-size: 12px;
-         font-family: Tahoma, Geneva, sans-serif;
-          font-weight: 400;
-           font-style: normal;
-            letter-spacing: normal;
-             text-transform: none;
+  font-size: 12px;
+  font-family: Tahoma, Geneva, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: normal;
+  text-transform: none;
 }
 .selectedValue {
   color: #fff;
@@ -104,40 +102,57 @@ input {
 }
 .show {
   display: block;
- 
 }
-
 .list-item {
-  padding: 5px;
+  margin-top: 10px;
+  border: 1px solid red;
 }
-.list-item:hover  {
+.list-item:hover {
   cursor: pointer;
   color: white;
-background: orange;
-color: #fff
+  background: orange;
+  color: #fff;
 }
-.input {
-  position: relative;
+.input-d {
   max-width: 244px;
   padding: 2px;
   border-radius: 3px;
   outline: none;
   height: 18px;
 }
-input:not([value=""]){
- font-size: 20px;
-  }
-  
+
 .arrow {
   position: absolute;
   left: 140px;
   font-size: 14px;
   width: 20px;
   height: 20px;
-cursor: pointer;
-
+  cursor: pointer;
 }
 .wrapper {
   display: flex;
   flex-direction: row;
+}
+
+/* input:not([value=""]){
+  position: relative;
+   } */
+input[value=""] {
+
+}
+input[type="text"] {
+  background:blue;
+  width: 90px;
+}
+
+.btn-del {
+  position: absolute;
+  top: 25px;
+  left: 70px;
+  width: 10px;
+  height: 10px;
+  outline: none;
+  background: transparent;
+  border: none;
+  vertical-align: middle;
 }

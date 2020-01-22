@@ -1,9 +1,7 @@
-import React, { Component } from 'react'
-
+import React, { Component, useRef } from 'react'
 import BaseComponent from './BaseComponent'
 
-
-export default class Wrapper extends Component {
+class Wrapper extends Component {
 
     state = {
         cities: [
@@ -16,37 +14,45 @@ export default class Wrapper extends Component {
             { name: 'Astana' }
         ],
         idx: 0,
-        choiced: false
+        choiced: false,
+        deleted: false,
+        show : false
     };
 
     cityToggleParent = () => {
         this.setState({
-            choiced: true
+            choiced: !this.state.choiced
         })
     };
 
-    indexCity = (value) => {
+    indexCityParent = (value) => {
         this.setState({
             idx: value,
-            choiced: false
+            choiced: false,
+            show: true
         })
     };
 
-
-    deleteCityParent = (e, idx) => {
+    deleteCityParent = (e) => {
         e.preventDefault();
-        let newCity = [...this.state.cities]
-        newCity = newCity[idx]
-        newCity = '' 0 null
         this.setState({
-            cities: newCity
-            //    this.refs.form.reset();
-        })
-
-        this.setState({
-            cities: 0
+            idx: 0,
+            deleted: true,
+            choiced: false,
+            show: false
         })
     }
+
+    inputChangeParent = (value) => {
+        // let newCity = [...this.state.cities]
+        // newCity[0].name = value
+        // let nf = this.state.fakeInput
+        // nf[0].name = value
+        this.setState({
+            input: value
+        })
+    }
+
     //delete, need index element, when event, -> delete -> delete this city
 
     render() {
@@ -55,14 +61,15 @@ export default class Wrapper extends Component {
                 <div className="wrapper">
                     <BaseComponent
                         cityToggle={this.cityToggleParent}
+                        getIndex={this.indexCityParent}
+                        deleteItem={this.deleteCityParent}
+                        inputChange={this.inputChangeParent}
                         city={this.state.cities}
-                        getIndex={this.indexCity}
                         idx={this.state.idx}
                         choiced={this.state.choiced}
-                        deleteItem={this.deleteCityParent}
-
+                        deleted={this.state.deleted}
+                        show = {this.state.show}
                     />
-
                 </div>
                 <button> search</button>
             </div >
@@ -70,5 +77,6 @@ export default class Wrapper extends Component {
     }
 }
 // input, and dropdown -> one storage get data, when click -> Delete, delete city, when chenge value input - get city name
-
 //last elements, history
+
+export default Wrapper
