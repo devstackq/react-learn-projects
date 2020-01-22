@@ -6,7 +6,7 @@ const BaseComponent = props => {
   return (
     <div className="pos">
       <div className="form-inline">
-        <label class="col-sm-3 col-form-label"> Destination</label>
+        <label className="col-sm-3 col-form-label"> Destination</label>
         <Input
           city={props.city}
           idx={props.idx}
@@ -16,10 +16,11 @@ const BaseComponent = props => {
           deleted={props.deleted}
           show={props.show}
           cityToggle={props.cityToggle}
+          prevCity={props.prevCity}
         />
 
         <i
-          class="fa fa-search  btn btn-primary btn-search"
+          className="fa fa-search  btn btn-primary btn-search"
           aria-hidden="true"
         ></i>
 
