@@ -1,6 +1,7 @@
 import React from "react";
 import List from "./List";
 import Input from "./Input";
+import HistoryList from './HistoryList'
 
 const BaseComponent = props => {
   return (
@@ -16,7 +17,7 @@ const BaseComponent = props => {
           deleted={props.deleted}
           show={props.show}
           cityToggle={props.cityToggle}
-        
+          inputClick={props.inputClick}
         />
 
         <i
@@ -26,7 +27,18 @@ const BaseComponent = props => {
 
         {/* <span className="arrow" onClick={() => props.cityToggle()}>V</span> */}
       </div>
-
+      <div className={props.showList ? "show" : "hidden"}>
+      <HistoryList 
+          historyCity ={props.historyCity}
+          choiced={props.choiced}
+          deleteItem={props.deleteItem}
+          deleted={props.deleted}
+          showList={props.showList}
+          cityClose={props.cityClose}
+          deleteItem={props.deleteItem}
+          />
+        {  console.log("work")}
+          </div>
       <div>
         {/* // 1 ch F, arrow -> ch T, -> show, 2 choiceCity(idx) - choiced F  -> hidden*/}
         <div className={props.choiced ? "show" : "hidden"}>
@@ -34,7 +46,10 @@ const BaseComponent = props => {
             city={props.city}
             getIndex={props.getIndex}
             choiced={props.choiced}
+
           />
+
+      
           {console.log("index", props.idx)}
           {console.log("choice", props.choiced)}
         </div>

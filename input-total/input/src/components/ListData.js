@@ -12,6 +12,7 @@ const ListData = props => {
         >
           {props.city.name}
         </li>
+        
       </ul>
     </div>
   );

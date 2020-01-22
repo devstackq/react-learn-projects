@@ -16,7 +16,9 @@ class Wrapper extends Component {
     idx: 0,
     choiced: false,
     deleted: false,
-    show: false
+    show: false,
+    showList: false,
+    cityClose: false
   };
 
   cityToggleParent = () => {
@@ -35,7 +37,8 @@ class Wrapper extends Component {
       historyCity: citiesHis,
       idx: value,
       choiced: !this.state.choiced,
-      show: true
+      show: true,
+      showList: false
     });
 
     console.log("history", this.state.historyCity);
@@ -56,6 +59,12 @@ class Wrapper extends Component {
     });
   };
 
+  inputClickParent = () => {
+    this.setState({
+      showList: !this.state.showList,
+      cityClose: true
+    });
+  };
 
   //delete, need index element, when event, -> delete -> delete this city
 
@@ -73,7 +82,10 @@ class Wrapper extends Component {
             choiced={this.state.choiced}
             deleted={this.state.deleted}
             show={this.state.show}
-       
+            historyCity={this.state.historyCity}
+            inputClick={this.inputClickParent}
+            showList={this.state.showList}
+            cityClose={this.state.cityClose}
           />
         </div>
         <div className="input-group-append"></div>

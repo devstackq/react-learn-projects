@@ -149,7 +149,6 @@ input {
   border-right: none;
 }
 
-
 .act:hover {
   background: orange;
 }
@@ -171,11 +170,23 @@ input {
 .btn-del {
   position: absolute;
   top: 8px;
-margin-left: 80px;
+  margin-left: 80px;
   width: 10px;
   height: 10px;
   outline: none;
   background: transparent;
   border: none;
   vertical-align: middle;
+}
+.cityList {
+  position: relative;
+}
+.btn-del-cityDelList {
+  position: absolute;
+  margin-left: 610px;
+  margin-top: -40px;
+  border: none;
+  outline: none;
+  background: #fff;
+  z-index: 999;
 }
