@@ -11,7 +11,7 @@ class Wrapper extends Component {
             { name: 'Pavlodar' },
             { name: 'Jezkazgan' },
             { name: 'Taraz' },
-            { name: 'Astana' }
+            { name: 'Astana' },
         ],
         idx: 0,
         choiced: false,
@@ -28,7 +28,7 @@ class Wrapper extends Component {
     indexCityParent = (value) => {
         this.setState({
             idx: value,
-            choiced: false,
+            choiced: !this.state.choiced,
             show: true
         })
     };
@@ -38,7 +38,7 @@ class Wrapper extends Component {
         this.setState({
             idx: 0,
             deleted: true,
-            choiced: false,
+          
             show: false
         })
     }
@@ -57,8 +57,8 @@ class Wrapper extends Component {
 
     render() {
         return (
-            <div> <label > Destination</label>
-                <div className="wrapper">
+            <div> 
+                <div>
                     <BaseComponent
                         cityToggle={this.cityToggleParent}
                         getIndex={this.indexCityParent}
@@ -72,7 +72,7 @@ class Wrapper extends Component {
                     />
                 </div>
                 <div className="input-group-append">
-    <button className="btn btn-outline-secondary" type="button">search</button>
+    
   </div>
             </div >
         )
