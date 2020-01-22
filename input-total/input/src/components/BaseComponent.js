@@ -17,7 +17,8 @@ const BaseComponent = props => {
                     deleted={props.deleted}
                     show = {props.show}
                 />
-                <span className="arrow" onClick={() => props.cityToggle()}>V</span>
+                 <button onClick={() => props.cityToggle()} type="button" className="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                {/* <span className="arrow" onClick={() => props.cityToggle()}>V</span> */}
             </div>
             <div>
                 {/* // 1 ch F, arrow -> ch T, -> show, 2 choiceCity(idx) - choiced F  -> hidden*/}

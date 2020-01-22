@@ -9,7 +9,7 @@ class Input extends React.Component {
             <div>
 
             
-<div class="input-group mb-3">
+{/* <div class="input-group mb-3">
   <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
   <div class="input-group-append">
     <button class="btn btn-outline-secondary" type="button">Button</button>
@@ -30,11 +30,11 @@ class Input extends React.Component {
       <div role="separator" class="dropdown-divider"></div>
       <a class="dropdown-item" href="#">Separated link</a>
     </div>
-  </div>
+  </div> */}
 
                 <form>
              
-                    <input className="input-d"
+                    <input className="input-d form-control"
                         name="city" type="text" defaultValue={this.props.deleted ? null : this.props.city[this.props.idx].name}
                         onChange={(e) => this.props.inputChange(e.target.value)}
                   />

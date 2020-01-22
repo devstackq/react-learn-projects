@@ -71,7 +71,9 @@ class Wrapper extends Component {
                         show = {this.state.show}
                     />
                 </div>
-                <button> search</button>
+                <div className="input-group-append">
+    <button className="btn btn-outline-secondary" type="button">search</button>
+  </div>
             </div >
         )
     }

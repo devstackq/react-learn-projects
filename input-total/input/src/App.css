@@ -141,7 +141,7 @@ input[value=""] {
 
 }
 input[type="text"] {
-  background:blue;
+
   width: 90px;
 }
 
@@ -155,4 +155,8 @@ input[type="text"] {
   background: transparent;
   border: none;
   vertical-align: middle;
+}
+
+.act:hover {
+background: orange;
 }
