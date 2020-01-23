@@ -4,11 +4,11 @@ import ListData from "./ListData";
 const List = props => {
   return (
     <div>
-      {props.city.map((c, index) => (
+      {props.cities.map((city, index) => (
         <ListData
           key={index}
           id={index}
-          city={c}
+          city={city}
           getIndex={props.getIndex}
           choiced={props.choiced}
           // changeChoice={()=>props.changeChoice()}

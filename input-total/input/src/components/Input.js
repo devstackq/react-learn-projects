@@ -12,7 +12,7 @@ class Input extends React.Component {
             className=" form-control inp"
             name="city"
             type="text"
-            defaultValue={this.props.city[this.props.idx].name}
+            defaultValue={this.props.city[this.props.idxD].name}
             onChange={e => this.props.inputChange(e.target.value)}
             onClick={() => this.props.inputClick()}
           />
@@ -28,7 +28,7 @@ class Input extends React.Component {
         >
           x
         </button>
-        {console.log(this.props.idx, "index city")}
+        {console.log(this.props.idxD, "index city")}
         {console.log(this.props.deleted, "delete status")}
       </div>
     );

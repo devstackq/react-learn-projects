@@ -13,7 +13,7 @@ class Wrapper extends Component {
       { name: "Astana" }
     ],
     historyCity: [],
-    idx: 0,
+    indexDel: 0,
     choiced: false,
     deleted: false,
     show: false,
@@ -26,16 +26,13 @@ class Wrapper extends Component {
       choiced: !this.state.choiced
     });
   };
-  // let newCity = [...this.state.cities]
-  // newCity[0].name = value
-  // let nf = this.state.fakeInput
-  // nf[0].name = value
-  indexCityParent = value => {
-    let citiesHis = this.state.historyCity;
-    citiesHis.push(this.state.cities[value]);
+
+  indexCityParent = idx => {
+    let citiesHis = [...this.state.historyCity];
+    citiesHis.unshift(this.state.cities[idx]);
     this.setState({
       historyCity: citiesHis,
-      idx: value,
+      indexDel: idx,
       choiced: !this.state.choiced,
       show: true,
       showList: false
@@ -47,10 +44,19 @@ class Wrapper extends Component {
   deleteCityParent = e => {
     e.preventDefault();
     this.setState({
-      idx: 0,
+      indexDel: 0,
       deleted: true,
       show: false
     });
+  };
+
+  deleteHisCityParent = id => {
+    let deletedCity = [...this.state.historyCity];
+    deletedCity.splice(id, 1);
+    //console.log(deletedCity, "deleted", id, "income id");
+    this.setState({ historyCity: deletedCity });
+    console.log("delete city", id);
+    //  console.log("deleted cities", this.state.historyCity);
   };
 
   inputChangeParent = value => {
@@ -77,8 +83,8 @@ class Wrapper extends Component {
             getIndex={this.indexCityParent}
             deleteItem={this.deleteCityParent}
             inputChange={this.inputChangeParent}
-            city={this.state.cities}
-            idx={this.state.idx}
+            cities={this.state.cities}
+            idxD={this.state.indexDel}
             choiced={this.state.choiced}
             deleted={this.state.deleted}
             show={this.state.show}
@@ -86,6 +92,7 @@ class Wrapper extends Component {
             inputClick={this.inputClickParent}
             showList={this.state.showList}
             cityClose={this.state.cityClose}
+            deleteHisCity={this.deleteHisCityParent}
           />
         </div>
         <div className="input-group-append"></div>

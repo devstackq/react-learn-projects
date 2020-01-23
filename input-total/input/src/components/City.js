@@ -8,15 +8,16 @@ const City = props => {
           <li
             className={"list-group-item "}
             key={props.index}
-            // onClick={() => props.getIndex(props.id)}
+            //  onClick={() => props.getIndex(props.id)}
           >
             {props.historyCity.name}
           </li>
         </ul>
       </div>
+
       <button
         className={props.cityClose ? "show btn-del-cityDelList" : "hidden"}
-        //  onClick={e => props.deleteItem(e)}
+        onClick={() => props.deleteHisCity(props.id)}
       >
         x
       </button>
