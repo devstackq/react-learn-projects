@@ -4,13 +4,14 @@ import BaseComponent from "./BaseComponent";
 class Wrapper extends Component {
   state = {
     cities: [
-      { name: "" },
+      {},
       { name: "Almaty" },
-      { name: "Karganda" },
-      { name: "Pavlodar" },
+      { name: "Astana" },
       { name: "Jezkazgan" },
+      { name: "Pavlodar" },
+      { name: "Shymkent" },
       { name: "Taraz" },
-      { name: "Astana" }
+      { name: "Uralsk" }
     ],
     historyCity: [],
     index: 0,
@@ -22,7 +23,8 @@ class Wrapper extends Component {
   //city choice - Dropdown -> choice city -> flag true
   choicedCityParent = () => {
     this.setState({
-      choiced: !this.state.choiced
+      choiced: !this.state.choiced,
+      showList: false
     });
   };
 
@@ -37,7 +39,7 @@ class Wrapper extends Component {
     this.setState({
       historyCity: citiesHis,
       index: idx,
-      choiced: !this.state.choiced,
+      choiced: false,
       show: true
     });
     // console.log("history", this.state.citiesHis);
@@ -70,7 +72,8 @@ class Wrapper extends Component {
   // show or close  history cities
   showHistoryListParent = () => {
     this.setState({
-      showList: !this.state.showList
+      showList: !this.state.showList,
+      choiced: false
     });
   };
 
