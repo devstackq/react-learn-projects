@@ -1,22 +1,20 @@
 import React from "react";
-import ListData from "./ListData";
+import City from "./City";
 
-const List = props => {
+const ListCity = props => {
   return (
     <div>
       {props.cities.map((city, index) => (
-        <ListData
+        <City
           key={index}
           id={index}
           city={city}
           getIndex={props.getIndex}
           choiced={props.choiced}
-          // changeChoice={()=>props.changeChoice()}
-          //remove click func
         />
       ))}
     </div>
   );
 };
 
-export default List;
+export default ListCity;

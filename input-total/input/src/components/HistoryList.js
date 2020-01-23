@@ -1,29 +1,18 @@
 import React from "react";
-import City from "./City";
+import HistCity from "./HistCity";
 
 const HistoryList = props => {
   return (
     <div>
-      {props.historyCity.map((c, index) => (
-        <City
+      {props.historyCity.map((city, index) => (
+        <HistCity
           key={index}
           id={index}
-          historyCity={c}
-           //  getIndex={props.getIndex}
-          //   choiced={props.choiced}
+          historyCity={city}
           showList={props.showList}
           deleteHisCity={props.deleteHisCity}
-          cityClose={props.cityClose}
-          // changeChoice={()=>props.changeChoice()}
-          //remove click func
         />
       ))}
-           {/* <button
-        className={props.cityClose ? "show btn-del-cityDelList" : "hidden"}
-        onClick={() => props.deleteHisCity( props.id)}
-      >
-        x
-      </button> */}
     </div>
   );
 };

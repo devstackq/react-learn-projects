@@ -13,94 +13,89 @@ class Wrapper extends Component {
       { name: "Astana" }
     ],
     historyCity: [],
-    indexDel: 0,
+    index: 0,
     choiced: false,
-    deleted: false,
     show: false,
-    showList: false,
-    cityClose: false
+    showList: false
   };
 
-  cityToggleParent = () => {
+  //city choice - Dropdown -> choice city -> flag true
+  choicedCityParent = () => {
     this.setState({
       choiced: !this.state.choiced
     });
   };
 
+  //1 unshift value from cities to histCity,
+  // 2 show value by idx -> in Input component
+  //3change choiced flag, true, false, - ListCity hidden
+  // 4show flag true, -> for button delete inside Input component
+  //
   indexCityParent = idx => {
     let citiesHis = [...this.state.historyCity];
     citiesHis.unshift(this.state.cities[idx]);
     this.setState({
       historyCity: citiesHis,
-      indexDel: idx,
+      index: idx,
       choiced: !this.state.choiced,
-      show: true,
-      showList: false
+      show: true
     });
-
-    console.log("history", this.state.historyCity);
+    // console.log("history", this.state.citiesHis);
   };
 
+  // delete city, Input component,  btn delete hidden, change index obj -> put 0 index obj cities[]
   deleteCityParent = e => {
     e.preventDefault();
     this.setState({
-      indexDel: 0,
-      deleted: true,
+      index: 0,
       show: false
     });
   };
 
+  //delete history each city by Id,
   deleteHisCityParent = id => {
     let deletedCity = [...this.state.historyCity];
     deletedCity.splice(id, 1);
-    //console.log(deletedCity, "deleted", id, "income id");
     this.setState({ historyCity: deletedCity });
-    console.log("delete city", id);
-    //  console.log("deleted cities", this.state.historyCity);
+    console.log("delete city id", id, "deleted city value ", deletedCity);
   };
 
-  inputChangeParent = value => {
+  //value input - onChange
+  inputValueParent = value => {
     this.setState({
       input: value
     });
   };
 
-  inputClickParent = () => {
+  // show or close  history cities
+  showHistoryListParent = () => {
     this.setState({
-      showList: !this.state.showList,
-      cityClose: true
+      showList: !this.state.showList
     });
   };
-
-  //delete, need index element, when event, -> delete -> delete this city
 
   render() {
     return (
       <div>
         <div>
           <BaseComponent
-            cityToggle={this.cityToggleParent}
+            cityToggle={this.choicedCityParent}
             getIndex={this.indexCityParent}
-            deleteItem={this.deleteCityParent}
-            inputChange={this.inputChangeParent}
+            deleteCity={this.deleteCityParent}
+            inputChange={this.inputValueParent}
             cities={this.state.cities}
-            idxD={this.state.indexDel}
+            idxD={this.state.index}
             choiced={this.state.choiced}
-            deleted={this.state.deleted}
             show={this.state.show}
             historyCity={this.state.historyCity}
-            inputClick={this.inputClickParent}
+            histListShow={this.showHistoryListParent}
             showList={this.state.showList}
-            cityClose={this.state.cityClose}
             deleteHisCity={this.deleteHisCityParent}
           />
         </div>
-        <div className="input-group-append"></div>
       </div>
     );
   }
 }
-// input, and dropdown -> one storage get data, when click -> Delete, delete city, when chenge value input - get city name
-//last elements, history
 
 export default Wrapper;

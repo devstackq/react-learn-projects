@@ -1,20 +1,17 @@
 import React from "react";
 
-//const Input = props => {
 class Input extends React.Component {
-  //onSubmit={() => props.deleteItem()
-  // <input onChange={(e) => this.changeCarsValueP(e.target.value, 1)} />
   render() {
     return (
       <div className=" input-group">
-        <div class="input-group-prepend">
+        <div className="input-group-prepend">
           <input
             className=" form-control inp"
             name="city"
             type="text"
             defaultValue={this.props.city[this.props.idxD].name}
             onChange={e => this.props.inputChange(e.target.value)}
-            onClick={() => this.props.inputClick()}
+            onClick={() => this.props.histListShow()}
           />
           <button
             onClick={() => this.props.cityToggle()}
@@ -24,12 +21,11 @@ class Input extends React.Component {
         </div>
         <button
           className={this.props.show ? "show btn-del" : "hidden"}
-          onClick={e => this.props.deleteItem(e)}
+          onClick={e => this.props.deleteCity(e, this.props.idxD)}
         >
           x
         </button>
-        {console.log(this.props.idxD, "index city")}
-        {console.log(this.props.deleted, "delete status")}
+        {console.log(this.props.idxD, "index choiced city")}
       </div>
     );
   }

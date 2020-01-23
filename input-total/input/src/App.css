@@ -1,102 +1,3 @@
-.form-row {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  position: relative;
-}
-.l {
-  min-width: 200px;
-  max-width: 200px;
-  margin-top: 3px;
-  margin-right: 5px;
-}
-.base-component {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: nowrap;
-  flex-wrap: nowrap;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-box-align: start;
-  -ms-flex-align: start;
-  align-items: flex-start;
-  width: 100%;
-  margin-bottom: 25px;
-}
-.main-input-full {
-  position: relative;
-  display: inline-block;
-  vertical-align: top;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-.tdselect {
-  border-radius: 5px;
-  border: 1px solid #97a4b5;
-  color: #333;
-  position: relative;
-  width: 100%;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-.pseudoinput.hasarrow {
-  width: calc(100% - 16px);
-  flex-direction: row;
-}
-.tdselect .pseudoinput {
-  border-collapse: separate;
-  border-spacing: 0;
-  cursor: text;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  line-height: normal;
-  outline: none;
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  padding: 4px 5px 5px 8px;
-}
-
-.autosizeinput > input {
-  background-color: transparent;
-  display: inline-block;
-  position: inherit;
-  padding: 0;
-  border: none;
-  -webkit-box-shadow: none !important;
-  box-shadow: none !important;
-}
-input {
-  box-sizing: content-box;
-
-  max-width: 244px;
-}
-.hid {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  visibility: hidden;
-  height: 0px;
-  overflow: scroll;
-  white-space: pre;
-
-  font-size: 12px;
-  font-family: Tahoma, Geneva, sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  letter-spacing: normal;
-  text-transform: none;
-}
-.selectedValue {
-  color: #fff;
-  background: rgb(76, 76, 214);
-}
-
 .hidden {
   display: none;
 }
@@ -107,19 +8,6 @@ input {
   margin-top: 10px;
   border: 1px solid red;
 }
-/* .list-item:hover {
-  cursor: pointer;
-  color: white;
-  background: orange;
-  color: #fff;
-} */
-/* .input-d {
-  max-width: 244px;
-  padding: 2px;
-  border-radius: 3px;
-  outline: none;
-  height: 18px;
-} */
 
 .arrow {
   position: absolute;
@@ -154,7 +42,7 @@ input {
 }
 
 .btn-search {
-  transform: rotate(90deg); /* IE 9 */
+  transform: rotate(90deg);
 }
 .container-w {
   margin: 30px auto 0;
