@@ -10,7 +10,7 @@ const Input = props => {
           name="city"
           type="text"
           defaultValue={props.city[props.idxD].name}
-          onChange={e => props.inputChange(e.target.value)}
+          //onChange={e => props.inputChange(e.target.value)}
           onClick={() => props.histListShow()}
         />
         <button
@@ -21,7 +21,7 @@ const Input = props => {
       </div>
       <button
         className={props.show ? "show btn-del" : "hidden"}
-        onClick={e => props.deleteCity(e, props.idxD, null)}
+        onClick={e => props.deleteCity(e)}
         //onClick={e => props.deleteCity(e, props.idxD, null)}
       >
         x

@@ -25,7 +25,7 @@ const BaseComponent = props => {
           aria-hidden="true"
         ></i>
       </div>
-      <div className={props.showList ? "show" : "hidden"}>
+      <div className={props.showList  ? "show" : "hidden"}>
         <HistoryList
           historyCity={props.historyCity}
           choiced={props.choiced}
@@ -36,7 +36,7 @@ const BaseComponent = props => {
       </div>
       <div>
         {/* // 1 ch F, arrow -> ch T, -> show, 2 choiceCity(idx) - choiced F  -> hidden*/}
-        <div className={props.choiced ? "show" : "hidden"}>
+        <div className={props.choiced ? "show " : "hidden"}>
           <ListCity
             cities={props.cities}
             getIndex={props.getIndex}

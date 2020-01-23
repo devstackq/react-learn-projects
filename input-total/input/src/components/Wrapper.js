@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import BaseComponent from "./BaseComponent";
+import ReactDOM from "react-dom";
 
 class Wrapper extends Component {
   state = {
@@ -17,9 +18,24 @@ class Wrapper extends Component {
     index: 0,
     choiced: false,
     show: false,
-    showList: false
+    showList: false,
+    lenCity: false
   };
 
+  componentDidMount() {
+    document.addEventListener("click", this.handleClickOutside, true);
+  }
+
+  handleClickOutside = event => {
+    const domNode = ReactDOM.findDOMNode(this);
+
+    if (!domNode || !domNode.contains(event.target)) {
+      this.setState({
+        showList: false,
+        choiced: false
+      });
+    }
+  };
   //city choice - Dropdown -> choice city -> flag true
   choicedCityParent = () => {
     this.setState({
@@ -55,7 +71,7 @@ class Wrapper extends Component {
   };
 
   //delete history each city by Id,
-  deleteHisCityParent = id => {
+  deleteHistoryCityParent = id => {
     let deletedCity = [...this.state.historyCity];
     deletedCity.splice(id, 1);
     this.setState({ historyCity: deletedCity });
@@ -63,7 +79,7 @@ class Wrapper extends Component {
   };
 
   //value input - onChange
-  inputValueParent = value => {
+  setInputValueParent = value => {
     this.setState({
       input: value
     });
@@ -85,7 +101,7 @@ class Wrapper extends Component {
             cityToggle={this.choicedCityParent}
             getIndex={this.indexCityParent}
             deleteCity={this.deleteCityParent}
-            inputChange={this.inputValueParent}
+            inputChange={this.setInputValueParent}
             cities={this.state.cities}
             idxD={this.state.index}
             choiced={this.state.choiced}
@@ -93,7 +109,7 @@ class Wrapper extends Component {
             historyCity={this.state.historyCity}
             histListShow={this.showHistoryListParent}
             showList={this.state.showList}
-            deleteHisCity={this.deleteHisCityParent}
+            deleteHisCity={this.deleteHistoryCityParent}
           />
         </div>
       </div>

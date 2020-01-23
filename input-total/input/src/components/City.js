@@ -2,10 +2,10 @@ import React from "react";
 
 const ListData = props => {
   return (
-    <div className="col-sm-2 list-c">
-      <ul className="list-group ">
+    <div className=" list-c">
+      <ul className="list-group scroll">
         <li
-          className={!props.choiced ? "" : "list-group-item act"}
+          className={"list-group-item act"}
           key={props.index}
           onClick={() => props.getIndex(props.id)}
         >
