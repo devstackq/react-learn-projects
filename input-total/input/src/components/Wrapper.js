@@ -55,7 +55,8 @@ class Wrapper extends Component {
     // let takecity = cities.find((city, index) => index == idx);
     // console.log(takecity, "take find");
 
-    // we filter out each repetitive value using
+    //if such a city is repeated, it will return only 1 of the same city
+    //  filter out each repetitive value using
     //  filter function and pass the unique callback to each array item.
     const unique = (value, index, self) => {
       return self.indexOf(value) === index;

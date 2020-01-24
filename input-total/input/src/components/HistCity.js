@@ -5,9 +5,9 @@ const City = props => {
     <div>
       <div className="col-sm-2 list-c">
         <ul className="list-group cityList">
-          <li className={"list-group-item "} key={props.index}>
+          <span className={"pseudo-list act "} key={props.index}>
             {props.historyCity.name}
-          </li>
+          </span>
         </ul>
       </div>
 

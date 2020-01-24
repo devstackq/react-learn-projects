@@ -38,7 +38,7 @@
 }
 
 .act:hover {
-  background: orange;
+  background: rgb(255, 228, 181);
 }
 
 .btn-search {
@@ -49,16 +49,14 @@
 }
 
 .list-c {
-  margin-left: 440px;
-  width: 280px;
-  height: 40px;
- 
+  margin-left: 465px;
 }
 
 .pos {
   margin: 30px auto 0;
 }
 .btn-del {
+  margin-top: 4px;
   position: absolute;
   margin-left: 80px;
   width: 10px;
@@ -70,19 +68,21 @@
 }
 .cityList {
   position: relative;
-  margin-top: 10px;
-  margin-left: 10px;
+  margin-top: 5px;
 }
 .btn-del-cityDelList {
   position: absolute;
-  margin-left: 570px;
-  margin-top: -45px;
+  margin-left: 740px;
+  margin-top: -32px;
   border: none;
   outline: none;
   background: #fff;
   z-index: 999;
 }
- 
+
 .scroll {
-overflow-y: visible;
+  overflow-y: scroll;
+}
+.pseudo-list {
+  padding: 5px;
 }
