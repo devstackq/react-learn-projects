@@ -36,6 +36,7 @@ class Wrapper extends Component {
       });
     }
   };
+
   //city choice - Dropdown -> choice city -> flag true
   choicedCityParent = () => {
     this.setState({
@@ -45,15 +46,27 @@ class Wrapper extends Component {
   };
 
   //1 unshift value from cities to histCity,
-  // 2 show value by idx -> in Input component
-  //3change choiced flag, true, false, - ListCity hidden
-  // 4show flag true, -> for button delete inside Input component
-  //
+  // 2 show value by index - take -> ListCity, and update-> in Input component
+  //3 change choiced flag, true, false, - ListCity hidden
+  // 4 show flag true, -> for button delete inside Input component
+  //5 filter unique value
   indexCityParent = idx => {
-    let citiesHis = [...this.state.historyCity];
-    citiesHis.unshift(this.state.cities[idx]);
+    // let cities = [...this.state.cities];
+    // let takecity = cities.find((city, index) => index == idx);
+    // console.log(takecity, "take find");
+
+    // we filter out each repetitive value using
+    //  filter function and pass the unique callback to each array item.
+    const unique = (value, index, self) => {
+      return self.indexOf(value) === index;
+    };
+
+    let citiesHistory = [...this.state.historyCity];
+    citiesHistory.unshift(this.state.cities[idx]);
+    let city = citiesHistory.filter(unique);
+    //console.log(city, "unique city");
     this.setState({
-      historyCity: citiesHis,
+      historyCity: city,
       index: idx,
       choiced: false,
       show: true
@@ -103,7 +116,7 @@ class Wrapper extends Component {
             deleteCity={this.deleteCityParent}
             inputChange={this.setInputValueParent}
             cities={this.state.cities}
-            idxD={this.state.index}
+            index={this.state.index}
             choiced={this.state.choiced}
             show={this.state.show}
             historyCity={this.state.historyCity}

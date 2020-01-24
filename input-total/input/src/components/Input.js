@@ -9,7 +9,7 @@ const Input = props => {
           className=" form-control inp"
           name="city"
           type="text"
-          defaultValue={props.city[props.idxD].name}
+          defaultValue={props.city[props.index].name}
           //onChange={e => props.inputChange(e.target.value)}
           onClick={() => props.histListShow()}
         />

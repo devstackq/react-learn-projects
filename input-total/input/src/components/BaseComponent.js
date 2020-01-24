@@ -10,7 +10,7 @@ const BaseComponent = props => {
         <label className="col-sm-3 col-form-label"> Destination</label>
         <Input
           city={props.cities}
-          idxD={props.idxD}
+          index={props.index}
           deleteCity={props.deleteCity}
           inputChange={props.inputChange}
           choiced={props.choiced}
@@ -25,7 +25,7 @@ const BaseComponent = props => {
           aria-hidden="true"
         ></i>
       </div>
-      <div className={props.showList  ? "show" : "hidden"}>
+      <div className={props.showList ? "show" : "hidden"}>
         <HistoryList
           historyCity={props.historyCity}
           choiced={props.choiced}

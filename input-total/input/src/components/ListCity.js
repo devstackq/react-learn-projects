@@ -6,7 +6,6 @@ const ListCity = props => {
     <div>
       {props.cities.map((city, index) => (
         <City
-       
           key={index}
           id={index}
           city={city}
