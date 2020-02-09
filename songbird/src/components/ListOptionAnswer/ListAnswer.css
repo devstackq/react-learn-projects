@@ -1,0 +1,17 @@
+.list-wrapper{
+    width: 600px;
+background-color: grey;
+display: flex;
+flex-direction: column;
+border: 1px solid gold;
+}
+.list-ul {
+border: 1px solid blue;
+height: 40px;
+    
+}
+.list-wrapper img {
+    margin-left: 20px;
+    width: 320px;
+    border: 1px solid red;
+}
